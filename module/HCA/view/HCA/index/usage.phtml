@@ -1,12 +1,13 @@
 <h2>API Usage &amp; Documentation</h2>
 
-<h3>Services Offered</h3>
+<h3>Client Services Offered</h3>
 
 <div class="panel panel-default">
   <div class="panel-heading">
     <h3 class="panel-title">Search by Zip Code</h3>
   </div>
   <div class="panel-body">
+    <p>Returns the closest housing counseling agencies to the specific zip code.</p>
     <h5>Parameters</h5>
     <table class="table table-hover table-bordered">
         <tr>
@@ -22,5 +23,20 @@
   <div class="panel-footer">
   <?php $searchZipURL = $this->serverUrl($this->url('HCA-API-searchZip')); ?>
     <span class="label label-primary">URL</span> <a href="<?php echo $searchZipURL; ?>/02718/10"><?php echo $searchZipURL; ?>/{zip}/{limit}</a>
+  </div>
+</div>
+
+<h3>Administrative Services Offered</h3>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Update Housing Counseling Agencies</h3>
+  </div>
+  <div class="panel-body">
+    <p>Updates the local database of HUD housing counseling agencies with the data available on HUD's website.</p>
+  </div>
+  <div class="panel-footer">
+  <?php $searchZipURL = $this->serverUrl($this->url('HCA-API-updateAgencies')); ?>
+    <span class="label label-primary">URL</span> <a href="<?php echo $searchZipURL; ?>"><?php echo $searchZipURL; ?></a>
   </div>
 </div>

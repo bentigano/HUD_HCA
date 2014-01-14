@@ -38,6 +38,18 @@ return array(
                      ),
                  ),
              ),
+             'HCA-API-updateAgencies' => array(
+                 'type'    => 'segment',
+                 'options' => array(
+                     'route'    => '/API/updateAgencies',
+                     'constraints' => array(
+                     ),
+                     'defaults' => array(
+                         'controller' => 'HCA\Controller\API',
+                         'action'     => 'updateAgencies',
+                     ),
+                 ),
+             ),
          ),
      ),
      

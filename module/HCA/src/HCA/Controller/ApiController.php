@@ -13,7 +13,6 @@ class ApiController extends AbstractActionController
     
     public function searchZipAction()
     {
-        $success = false;
         $zip = $this->params()->fromRoute('zip', 0);
         $limit = (int)$this->params()->fromRoute('limit', 10); // default to 10
         
@@ -30,6 +29,17 @@ class ApiController extends AbstractActionController
         $result = new JsonModel(array(
         'success'=>true,
         'agencies' => $this->getClosestAgencies($zipCodeData->latitude, $zipCodeData->longitude, $limit),
+        ));
+        
+        return $result;
+    }
+    
+    public function updateAgenciesAction()
+    {
+        $this->getAgencyTable()->importHousingCounselingAgencies();
+        $result = new JsonModel(array(
+        'success'=>true,
+        'message' => 'HUD housing counseling agencies have been updated.',
         ));
         
         return $result;
