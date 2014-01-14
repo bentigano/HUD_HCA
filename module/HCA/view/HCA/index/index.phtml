@@ -1,0 +1,36 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">What?</h3>
+  </div>
+  <div class="panel-body">
+    <p>A website that describes and offers an API that is used to pull back HUD-approved housing counseling agencies (HCA) in JSON format.</p>
+  </div>
+</div>
+
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">Why?</h3>
+  </div>
+  <div class="panel-body">
+    <p>The <a href="http://data.hud.gov/housing_counseling.html" target="_blank">service</a> provided by <a href="http://portal.hud.gov/hudportal/HUD" target="_blank">HUD (U.S. Department of Housing and Urban Development)</a> is weak, and provides no intelligence for getting the closest HCA to your location. Despite the inability for the service to provide that data, our illustrious government has <a href="http://files.consumerfinance.gov/f/201311_cfpb_bulletin_homeownership-counseling-list-requirements.pdf" target="_blank">required</a> that lenders provide borrowers with a list of the ten HCA's closest to their zip code. More details are located <a href="http://files.consumerfinance.gov/f/201311_cfpb_interpretive-rule_homeownership-counseling-organizations-lists.pdf" target="_blank">here</a>.</p>
+    <p>In an effort to solve the problem that HUD either can't or won't, this service was created.</p>
+  </div>
+</div>
+
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">When?</h3>
+  </div>
+  <div class="panel-body">
+    <p>The requirement takes effect for all loan applications dated January 10, 2014. However, for the first six months, apparently the <a href="http://www.consumerfinance.gov/" target="_blank">CFPB</a> has stated that guidance directing the borrower to <a href="http://www.consumerfinance.gov/find-a-housing-counselor/" target="_blank">their website</a> to generate the list themselves will suffice.</p>
+  </div>
+</div>
+
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">How?</h3>
+  </div>
+  <div class="panel-body">
+    <p>In order to use this API, you should check out the <a href="<?php echo $this->url('HCA', array('action' => 'usage')); ?>">Usage and Documentation guide</a>. In a nutshell, you send us some data (like a zip code), and we send you back the closest HCA's in an easily-consumable JSON format.</p>
+  </div>
+</div>

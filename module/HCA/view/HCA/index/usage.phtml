@@ -1,0 +1,26 @@
+<h2>API Usage &amp; Documentation</h2>
+
+<h3>Services Offered</h3>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Search by Zip Code</h3>
+  </div>
+  <div class="panel-body">
+    <h5>Parameters</h5>
+    <table class="table table-hover table-bordered">
+        <tr>
+            <td><code>zip</code></td>
+            <td>The zip code to use for searching nearby housing counseling agencies.</td>
+        </tr>
+        <tr>
+            <td><em><code>limit</code></em></td>
+            <td><em>Optional - default to 10. The maximum number of rows to return.</em></td>
+        </tr>
+    </table>
+  </div>
+  <div class="panel-footer">
+  <?php $searchZipURL = $this->serverUrl($this->url('HCA-API-searchZip')); ?>
+    <span class="label label-primary">URL</span> <a href="<?php echo $searchZipURL; ?>/02718/10"><?php echo $searchZipURL; ?>/{zip}/{limit}</a>
+  </div>
+</div>
