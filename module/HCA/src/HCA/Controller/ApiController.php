@@ -36,7 +36,9 @@ class ApiController extends AbstractActionController
     
     public function updateAgenciesAction()
     {
-        $this->getAgencyTable()->importHousingCounselingAgencies();
+        $config = $this->getServiceLocator()->get('Config');
+        $hudApiUrl = $config['HCA']['HUD_API'];
+        $this->getAgencyTable()->importHousingCounselingAgencies($hudApiUrl);
         $result = new JsonModel(array(
         'success'=>true,
         'message' => 'HUD housing counseling agencies have been updated.',

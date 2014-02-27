@@ -45,11 +45,10 @@ class AgencyTable
          $this->tableGateway->delete();
      }
      
-     private function getAllHousingCounselingAgencies()
+     private function getAllHousingCounselingAgencies($hudApiUrl)
      {
-         $apiURL = 'http://data.hud.gov/Housing_Counselor/searchByLocation?Lat=40&Long=-70&Distance=3000&RowLimit=&Services=&Languages=';
          $agencies = array();
-         $file = file_get_contents($apiURL);
+         $file = file_get_contents($hudApiUrl);
  
          if ($file != false) {
             $jsonObject = json_decode($file);
@@ -57,10 +56,10 @@ class AgencyTable
          return $jsonObject;
      }
      
-     public function importHousingCounselingAgencies()
+     public function importHousingCounselingAgencies($hudApiUrl)
      {
          $this->deleteAllAgencies();
-         $agencies = $this->getAllHousingCounselingAgencies();
+         $agencies = $this->getAllHousingCounselingAgencies($hudApiUrl);
         
          foreach ($agencies as $hudAgency) {
             $agency = new Agency();

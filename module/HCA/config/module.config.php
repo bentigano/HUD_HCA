@@ -1,6 +1,9 @@
 <?php
 
 return array(
+    'HCA' => array(
+        'HUD_API' => 'http://data.hud.gov/Housing_Counselor/searchByLocation?Lat=40&Long=-70&Distance=3000&RowLimit=&Services=&Languages=',
+    ),
      'controllers' => array(
          'invokables' => array(
              'HCA\Controller\Index' => 'HCA\Controller\IndexController',
