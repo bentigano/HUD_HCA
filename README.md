@@ -6,11 +6,19 @@ Introduction
 This is a simple web service used to retrieve a list of
 nearby HUD-approved housing counseling agencies.
 
+### Database Options
+This application comes pre-configured to use SQLite with
+the PDO driver. However, you may use any PDO-compatible
+database by configuring it in the `config/autoload`
+configuration files. A sample MySQL entry is included.
+If you decide to use a custom database, the `data`
+directory includes SQL to execute that will create the
+schema needed for the application.
+
 Installation
 ------------
 
-Using Git submodules
---------------------
+### Using Git submodules
 Alternatively, you can install using native git submodules:
 
     git clone git://github.com/bentigano/HUD_HCA.git --recursive
