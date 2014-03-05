@@ -47,6 +47,12 @@ class ApiController extends AbstractActionController
         return $result;
     }
     
+    /**
+     * Returns the TableGateway for the agencies table.
+     * 
+     * @access private
+     * @return Zend\Db\TableGateway\TableGateway TableGateway for the agencies table
+     */
     private function getAgencyTable()
     {
         if (!$this->agencyTable) {
@@ -56,6 +62,13 @@ class ApiController extends AbstractActionController
         return $this->agencyTable;
     }
     
+    
+    /**
+     * Returns the TableGateway for the zip_codes table.
+     * 
+     * @access private
+     * @return Zend\Db\TableGateway\TableGateway TableGateway for the zip_codes table
+     */
     private function getZipCodeTable()
     {
         if (!$this->zipCodeTable) {
@@ -65,6 +78,16 @@ class ApiController extends AbstractActionController
         return $this->zipCodeTable;
     }
     
+    /**
+     * Retrieves the housing counseling agencies closest to the given latitude
+     * and longitude coordinates, limited to 10 or the specified number of agencies.
+     * 
+     * @access private
+     * @param float $latitude
+     * @param float $longitude
+     * @param int $limit (default: 10)
+     * @return array Array of housing counseling agencies.
+     */
     private function getClosestAgencies($latitude, $longitude, $limit = 10)
     {
         $agencies = $this->getAgencyTable()->fetchAll();

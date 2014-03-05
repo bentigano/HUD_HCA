@@ -2,6 +2,9 @@
 
 namespace HCA\Model;
 
+/**
+ * Agency class.
+ */
 class Agency
 {
     public $id;
@@ -35,6 +38,13 @@ class Agency
     public $last_updated;
     public $distance;
     
+    /**
+     * Exchanges array data into object variables.
+     * 
+     * @access public
+     * @param mixed $data
+     * @return void
+     */
     public function exchangeArray($data)
     {
         $this->id = (!empty($data['id'])) ? $data['id'] : null;
@@ -69,6 +79,15 @@ class Agency
         $this->distance = (!empty($data['distance'])) ? $data['distance'] : null;
     }
     
+    /**
+     * Calculates the distance (in miles) between the agency
+     * and the given lat/long coordinates.
+     * 
+     * @access public
+     * @param mixed $fromLatitude
+     * @param mixed $fromLongitude
+     * @return float Distance between the agency and passes in coordinates.
+     */
     public function calculateDistance($fromLatitude, $fromLongitude)
     {
     	$pi80 = M_PI / 180;

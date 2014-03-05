@@ -61,6 +61,12 @@ class IndexController extends AbstractActionController
         return $view;
     }
     
+    /**
+     * Returns the TableGateway for the agencies table.
+     * 
+     * @access private
+     * @return Zend\Db\TableGateway\TableGateway TableGateway for the agencies table
+     */
     public function getAgencyTable()
     {
         if (!$this->agencyTable) {
@@ -70,6 +76,12 @@ class IndexController extends AbstractActionController
         return $this->agencyTable;
     }
 	
+	/**
+     * Returns the TableGateway for the zip_codes table.
+     * 
+     * @access private
+     * @return Zend\Db\TableGateway\TableGateway TableGateway for the zip_codes table
+     */
 	private function getZipCodeTable()
     {
         if (!$this->zipCodeTable) {

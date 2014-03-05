@@ -4,21 +4,45 @@ namespace HCA\Model;
 
 use Zend\Db\TableGateway\TableGateway;
 
+/**
+ * Provides database access for retrieving housing counseling agency data.
+ */
 class AgencyTable
 {
     protected $tableGateway;
 
+    /**
+     * AgencyTable constructor.
+     * 
+     * @access public
+     * @param TableGateway $tableGateway
+     * @return void
+     */
     public function __construct(TableGateway $tableGateway)
     {
         $this->tableGateway = $tableGateway;
     }
 
+    /**
+     * Returns all agency records.
+     * 
+     * @access public
+     * @return \Zend\Db\ResultSet\ResultSet
+     */
     public function fetchAll()
     {
         $resultSet = $this->tableGateway->select();
         return $resultSet;
     }
 
+    
+    /**
+     * Gets the data for a given agency.
+     * 
+     * @access public
+     * @param mixed $id
+     * @return \ArrayObject
+     */
     public function getAgency($id)
     {
         $id  = (int) $id;
@@ -27,6 +51,13 @@ class AgencyTable
         return $row;
     }
 
+    /**
+     * Saves the data for a given agency into the agencies table.
+     * 
+     * @access public
+     * @param Agency $agency
+     * @return void
+     */
     public function saveAgency(Agency $agency)
     {   
         $data = get_object_vars($agency);
@@ -40,11 +71,25 @@ class AgencyTable
         }
      }
 
+     /**
+      * Deletes all agencies from the agencies table.
+      * 
+      * @access public
+      * @return void
+      */
      public function deleteAllAgencies()
      {
          $this->tableGateway->delete();
      }
      
+     /**
+      * Returns a JSON-decoded PHP object of all housing counseling
+      * agencies founded on HUD's website at the URL provided.
+      * 
+      * @access private
+      * @param string $hudApiUrl
+      * @return mixed
+      */
      private function getAllHousingCounselingAgencies($hudApiUrl)
      {
          $agencies = array();
@@ -56,6 +101,14 @@ class AgencyTable
          return $jsonObject;
      }
      
+     /**
+      * Imports all housing counseling agencies from HUD's website
+      * at the URL provided into the agencies table.
+      * 
+      * @access public
+      * @param string $hudApiUrl
+      * @return void
+      */
      public function importHousingCounselingAgencies($hudApiUrl)
      {
          $this->deleteAllAgencies();

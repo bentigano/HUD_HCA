@@ -4,21 +4,44 @@ namespace HCA\Model;
 
 use Zend\Db\TableGateway\TableGateway;
 
+/**
+ * Provides database access for retrieving zip code data.
+ */
 class ZipCodeTable
 {
     protected $tableGateway;
 
+    /**
+     * ZipCodeTable constructor.
+     * 
+     * @access public
+     * @param TableGateway $tableGateway
+     * @return void
+     */
     public function __construct(TableGateway $tableGateway)
     {
         $this->tableGateway = $tableGateway;
     }
 
+    /**
+     * Returns all zip code records.
+     * 
+     * @access public
+     * @return \Zend\Db\ResultSet\ResultSet
+     */
     public function fetchAll()
     {
         $resultSet = $this->tableGateway->select();
         return $resultSet;
     }
 
+    /**
+     * Returns the data for a given zip code.
+     * 
+     * @access public
+     * @param mixed $zip
+     * @return \ArrayObject
+     */
     public function getZipCode($zip)
     {
         $zip  = $zip;
@@ -26,27 +49,4 @@ class ZipCodeTable
         $row = $rowset->current();
         return $row;
     }
-
-    public function saveZipCode(ZipCode $zipCode)
-    {
-        $data = array(
-         'key' => $zipCode->value,
-        );
-
-        $zip = $zipCode->zip_code;
-        if ($zip == 0) {
-            $this->tableGateway->insert($data);
-        } else {
-            if ($this->getAgency($zip)) {
-                $this->tableGateway->update($data, array('zip_code' => $zip));
-            } else {
-                throw new \Exception('Zip Code id does not exist');
-            }
-        }
-     }
-
-     public function deleteZipCode($zip)
-     {
-         $this->tableGateway->delete(array('zip_code' => (int) $zip));
-     }
 }

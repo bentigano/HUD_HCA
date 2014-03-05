@@ -2,6 +2,9 @@
 
 namespace HCA\Model;
 
+/**
+ * ZipCode class.
+ */
 class ZipCode
 {
     public $zip_code;
@@ -11,6 +14,13 @@ class ZipCode
     public $state;
     public $county;
     
+    /**
+     * Exchanges array data into object variables.
+     * 
+     * @access public
+     * @param mixed $data
+     * @return void
+     */
     public function exchangeArray($data)
     {
         $this->zip_code = (!empty($data['zip_code'])) ? $data['zip_code'] : null;
