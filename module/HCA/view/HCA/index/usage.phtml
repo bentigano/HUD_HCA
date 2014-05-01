@@ -26,6 +26,26 @@
   </div>
 </div>
 
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Get Agency by Zip Code</h3>
+  </div>
+  <div class="panel-body">
+    <p>Returns the data for an agency by agency identifier.</p>
+    <h5>Parameters</h5>
+    <table class="table table-hover table-bordered">
+        <tr>
+            <td><code>id</code></td>
+            <td>The numeric identifier assigned to a specific housing counseling agency.</td>
+        </tr>
+    </table>
+  </div>
+  <div class="panel-footer">
+  <?php $getAgencyURL = $this->serverUrl($this->url('HCA-API-getAgency')); ?>
+    <span class="label label-primary">URL</span> <a href="<?php echo $getAgencyURL; ?>/81747"><?php echo $getAgencyURL; ?>/{id}</a>
+  </div>
+</div>
+
 <h3>Administrative Services Offered</h3>
 
 <div class="panel panel-default">

@@ -53,6 +53,19 @@ return array(
                      ),
                  ),
              ),
+             'HCA-API-getAgency' => array(
+                 'type'    => 'segment',
+                 'options' => array(
+                     'route'    => '/API/getAgency[/:id]',
+                     'constraints' => array(
+                         'id'     => '[0-9]+',
+                     ),
+                     'defaults' => array(
+                         'controller' => 'HCA\Controller\API',
+                         'action'     => 'getAgency',
+                     ),
+                 ),
+             ),
          ),
      ),
      

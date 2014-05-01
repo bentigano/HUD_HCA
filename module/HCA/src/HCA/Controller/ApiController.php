@@ -34,6 +34,26 @@ class ApiController extends AbstractActionController
         return $result;
     }
     
+    public function getAgencyAction()
+    {
+        $agencyID = (int)$this->params()->fromRoute('id', 0);
+        $agencyData = $this->getAgencyTable()->getAgency($agencyID);
+        if ($agencyData === false) {
+            $this->getResponse()->setStatusCode(500);
+            $result = new JsonModel(array(
+            'success' => false,
+            'message' => 'Agency not found in database.',
+            ));
+            return $result;
+        }
+        
+        $result = new JsonModel(array(
+        'success' => true,
+        'agency' => $agencyData));
+        
+        return $result;
+    }
+    
     public function updateAgenciesAction()
     {
         $config = $this->getServiceLocator()->get('Config');
